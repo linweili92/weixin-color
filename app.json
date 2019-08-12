@@ -1,18 +1,19 @@
 {
   "pages": [
+    "pages/home/main",
     "pages/index/index",
     "pages/logs/logs"
   ],
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/main",
         "iconPath": "images/topbar/home-out.png",
         "selectedIconPath": "images/topbar/home-on.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/index/index",
         "iconPath": "images/topbar/user-out.png",
         "selectedIconPath": "images/topbar/user-on.png",
         "text": "我"
