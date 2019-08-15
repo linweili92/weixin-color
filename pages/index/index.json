@@ -1,5 +1,6 @@
 {
   "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "个人信息",
+  "disableScroll": false,
   "usingComponents": {}
 }

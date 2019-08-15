@@ -1,2 +1,17 @@
 <!--pages/home/main.wxml-->
+<view>{{t1}}</view>
+<button bindtap="viewTap">修改文字</button>
+
+<view>{{num}}</view>
+<button bindtap="changeNum"> Change normal num </button>
+<view>{{array[0].text}}</view>
+<button bindtap="changeItemInArray"> Change Array data </button>
+<view>{{object.text}}</view>
+<button bindtap="changeItemInObject"> Change Object data </button>
+<view>{{newField.text}}</view>
+<button bindtap="addNewField"> Add new data </button>
+<button bindtap="naTo">navigateTo跳转非tabBar页面,有返回</button>
+<button bindtap="reTo">redirectTo跳转非tabBar页面,没返回</button>
+<button bindtap="switTo">switchTab 跳转tabBar页面</button>
+<button bindtap="reLaunchTo">reLaunch跳转任意页面,没返回</button>
 

@@ -1,6 +1,3 @@
-<cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">个人信息</view>
-</cu-custom>
 <view class="margin padding bg-white radius shadow shadow-lg">
   <view class="flex justify-center">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 未登录 </button>

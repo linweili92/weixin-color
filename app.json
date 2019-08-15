@@ -5,6 +5,7 @@
     "pages/logs/logs"
   ],
   "tabBar": {
+    "selectedColor": "#000000",
     "list": [
       {
         "pagePath": "pages/home/main",
@@ -21,7 +22,7 @@
     ]
   },
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "ColorUI",
     "navigationBarTextStyle": "black"
@@ -32,7 +33,10 @@
   },
   "networkTimeout": {
     "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
     "downloadFile": 10000
   },
+  "debug": true,
   "sitemapLocation": "sitemap.json"
 }
