@@ -1,0 +1,3 @@
+<template name="item">
+  <text>{{text}} 666</text>
+</template>

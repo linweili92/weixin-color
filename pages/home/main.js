@@ -1,4 +1,6 @@
 // pages/home/main.js
+//引入js
+var common = require("../../utils/common.js")
 Page({
 
   /**
@@ -7,10 +9,20 @@ Page({
   data: {
     t1: "This is page data.",
     num: 0,
+    zero: 0,
     array: [{ text: 'init data' }],
     object: {
       text: 'init data'
-    }
+    },
+    aa: [1, 2, 3, 4, 5],
+    staffA: { firstName: 'Hulk', lastName: 'Hu' },
+    staffB: { firstName: 'Shang', lastName: 'You' },
+    staffC: { firstName: 'Gideon', lastName: 'Lin' },
+    wxf: [{
+      message: 'foo',
+    }, {
+      message: 'bar'
+    }]
   },
 
   /**
@@ -74,7 +86,9 @@ Page({
     }
   },
   // Event handler.
-  viewTap: function () {
+  viewTap: function (event) {
+    console.log(event)
+    common.sayHello(666)
     this.setData({
       t1: 'Set some data for updating view.' + Math.floor(Math.random() * 50 + 50)
     })

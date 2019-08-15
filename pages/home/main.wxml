@@ -1,4 +1,6 @@
 <!--pages/home/main.wxml-->
+<include src="../common/header.wxml"/>
+
 <view>{{t1}}</view>
 <button bindtap="viewTap">修改文字</button>
 
@@ -14,4 +16,36 @@
 <button bindtap="reTo">redirectTo跳转非tabBar页面,没返回</button>
 <button bindtap="switTo">switchTab 跳转tabBar页面</button>
 <button bindtap="reLaunchTo">reLaunch跳转任意页面,没返回</button>
+<view wx:for-items="{{[zero, 1, 2, 3, 4]}}" wx:key> {{item}} </view>
+<view wx:if="{{view == 'WEBVIEW'}}"> WEBVIEW </view>
+<view wx:elif="{{view == 'APP'}}"> APP </view>
+<view wx:else="{{view == 'MINA'}}"> MINA </view>
+<template name="staffname">
+<view>
+    FirstName: {{firstName}}, LastName: {{lastName}}
+  </view>
+</template>
+<template is="staffname" data="{{...staffA}}"></template>
+<template is="staffname" data="{{...staffB}}"></template>
+<template is="staffname" data="{{...staffC}}"></template>
+<view wx:for="{{wxf}}" wx:key>
+  {{index}}: {{item.message}}
+</view>
+<view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i" wx:key>
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j" wx:key>
+    <view wx:if="{{i <= j}}">
+      {{i}} * {{j}} = {{i * j}}
+    </view>
+  </view>
+</view>
 
+<block wx:for="{{[1, 2, 3]}}" wx:key>
+  <view> {{index}}: </view>
+  <view> {{item}} </view>
+</block>
+<import src="../common/item.wxml"/>
+<template is="item" data="{{text: 'forbar'}}"/>
+
+
+
+<include src="../common/footer.wxml"/>
