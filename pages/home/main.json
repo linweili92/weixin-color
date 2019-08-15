@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
-  "usingComponents": {}
+  "navigationBarTitleText": "首页-标题"
 }
