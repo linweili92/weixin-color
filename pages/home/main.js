@@ -1,12 +1,16 @@
 // pages/home/main.js
 //引入js
 var common = require("../../utils/common.js")
+var order = ['red', 'yellow', 'blue', 'green', 'red']
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    toView: 'red',
+    scrollTop: 100,
     t1: "This is page data.",
     num: 0,
     zero: 0,
@@ -137,5 +141,29 @@ Page({
     // wx.reLaunch({
     //   url: '/pages/index/index',
     // })
+  },
+  upper: function (e) {
+    console.log(e)
+  },
+  lower: function (e) {
+    console.log(e)
+  },
+  scroll: function (e) {
+    console.log(e)
+  },
+  tap: function (e) {
+    for (var i = 0; i < order.length; ++i) {
+      if (order[i] === this.data.toView) {
+        this.setData({
+          toView: order[i + 1]
+        })
+        break
+      }
+    }
+  },
+  tapMove: function (e) {
+    this.setData({
+      scrollTop: this.data.scrollTop + 10
+    })
   }
 })
