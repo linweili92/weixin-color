@@ -2,6 +2,10 @@
 //引入js
 var common = require("../../utils/common.js")
 var order = ['red', 'yellow', 'blue', 'green', 'red']
+var initData = 'this is first line\nthis is second line'
+var extraLine = [];
+var types = ['default', 'primary', 'warn']
+
 
 Page({
 
@@ -9,6 +13,31 @@ Page({
    * 页面的初始数据
    */
   data: {
+    defaultSize: 'default',
+    primarySize: 'default',
+    warnSize: 'default',
+    disabled: false,
+    plain: false,
+    loading: false,
+    text: initData,
+    imgUrls: [
+      '../../images/swiper/i1.jpg',
+      '../../images/swiper/i2.jpg',
+      '../../images/swiper/i3.jpg',
+    ],
+    indicatorDots: false,
+    autoplay: false,
+    interval: 5000,
+    duration: 1000,
+    x: 0,
+    y: 0,
+    iconSize: [10, 20, 30, 40, 50, 60],
+    iconColor: [
+      'red', 'orange', 'yellow', 'green', 'rgb(0,255,255)', 'blue', 'purple'
+    ],
+    iconType: [
+      'success', 'success_no_circle', 'info', 'warn', 'waiting', 'cancel', 'download', 'search', 'clear'
+    ],
     toView: 'red',
     scrollTop: 100,
     t1: "This is page data.",
@@ -26,6 +55,17 @@ Page({
       message: 'foo',
     }, {
       message: 'bar'
+    }],
+    nodes: [{
+      name: 'div',
+      attrs: {
+        class: 'div_class',
+        style: 'line-height: 60px; color: red;'
+      },
+      children: [{
+        type: 'text',
+        text: 'Hello&nbsp;World!'
+      }]
     }]
   },
 
@@ -40,7 +80,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.videoCtx = wx.createVideoContext('myVideo')
   },
 
   /**
@@ -151,6 +191,12 @@ Page({
   scroll: function (e) {
     console.log(e)
   },
+  taps: function (e) {
+    this.setData({
+      x: 30,
+      y: 30
+    });
+  },
   tap: function (e) {
     for (var i = 0; i < order.length; ++i) {
       if (order[i] === this.data.toView) {
@@ -164,6 +210,65 @@ Page({
   tapMove: function (e) {
     this.setData({
       scrollTop: this.data.scrollTop + 10
+    })
+  },
+  changeIndicatorDots: function (e) {
+    this.setData({
+      indicatorDots: !this.data.indicatorDots
+    })
+  },
+  changeAutoplay: function (e) {
+    this.setData({
+      autoplay: !this.data.autoplay
+    })
+  },
+  intervalChange: function (e) {
+    this.setData({
+      interval: e.detail.value
+    })
+  },
+  durationChange: function (e) {
+    this.setData({
+      duration: e.detail.value
+    })
+  },
+  play() {
+    this.videoCtx.play()
+  },
+  pause() {
+    this.videoCtx.pause()
+  },
+  add: function (e) {
+    extraLine.push('other line')
+    this.setData({
+      text: initData + '\n' + extraLine.join('\n')
+    })
+  },
+  remove: function (e) {
+    if (extraLine.length > 0) {
+      extraLine.pop()
+      this.setData({
+        text: initData + '\n' + extraLine.join('\n')
+      })
+    }
+  },
+
+  tapn() {
+    console.log('tap')
+  },
+  setDisabled: function (e) {
+    this.setData({
+      disabled: !this.data.disabled
+    })
+  },
+  setPlain: function (e) {
+    this.setData({
+      plain: !this.data.plain
+    })
+  },
+  setLoading: function (e) {
+    this.setData({
+      loading: !this.data.loading
     })
   }
 })
